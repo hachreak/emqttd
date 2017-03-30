@@ -84,7 +84,9 @@ check_acl(Client, PubSub, Topic) when ?PUBSUB(PubSub) ->
     end.
 check_acl(#mqtt_client{client_id = ClientId}, PubSub, Topic, []) ->
     lager:error("ACL: nomatch for ~s ~s ~s", [ClientId, PubSub, Topic]),
-    allow;
+    % FIXME wait fo Cascading of authentication/ACL will be released in 2.2
+    % See issue emqttd#777
+    deny;
 check_acl(Client, PubSub, Topic, [{Mod, State, _Seq}|AclMods]) ->
     case Mod:check_acl({Client, PubSub, Topic}, State) of
         allow  -> allow;
