@@ -8,7 +8,7 @@ dep_gproc       = git https://github.com/uwiger/gproc
 dep_getopt      = git https://github.com/jcomellas/getopt v0.8.2
 dep_lager       = git https://github.com/basho/lager master
 dep_esockd      = git https://github.com/emqtt/esockd v4.2
-dep_mochiweb    = git https://github.com/emqtt/mochiweb
+dep_mochiweb    = git https://github.com/emqtt/mochiweb b379771
 
 ERLC_OPTS += +'{parse_transform, lager_transform}'
 
